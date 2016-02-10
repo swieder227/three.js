@@ -58,15 +58,20 @@
 
 				scene = new THREE.Scene();
 
-				var geometry = new THREE.SphereGeometry( 500, 500, 500 );
+				var geometry = new THREE.SphereGeometry( 500, 200, 200 );
 				geometry.scale( - 1, 1, 1 );
 
 				var video = document.createElement( 'video' );
-				video.width = 4096;
-				video.height = 2048;
+				video.width = 1920;
+				video.height = 1080;
 				video.autoplay = true;
 				video.loop = true;
-				video.src = "textures/360_video_4k.mp4";
+				video.src = "textures/360_video_360p.mp4";
+				video.onloadstart = function() {
+    			window.alert("Starting to load video");
+				};
+
+
 
 				var texture = new THREE.VideoTexture( video );
 				texture.minFilter = THREE.LinearFilter;

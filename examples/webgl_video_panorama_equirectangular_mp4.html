@@ -25,11 +25,20 @@
 			a {
 				color: #ffffff;
 			}
+
+			#btn-play {
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 1000;
+				font-size: 20px;
+			}
 		</style>
 	</head>
 	<body>
 
 		<div id="container"></div>
+		<button id="btn-play" onclick=playVideo()>PLAY</button>
 
 		<script src="../build/three.min.js"></script>
 
@@ -58,7 +67,7 @@
 
 				scene = new THREE.Scene();
 
-				var geometry = new THREE.SphereGeometry( 500, 200, 200 );
+				var geometry = new THREE.SphereGeometry( 200, 100, 100 );
 				geometry.scale( - 1, 1, 1 );
 
 				var video = document.createElement( 'video' );
@@ -66,10 +75,12 @@
 				video.height = 1080;
 				video.autoplay = true;
 				video.loop = true;
-				video.src = "textures/360_video_360p.mp4";
+				video.src = "textures/360_video_720p.mp4";
 				video.onloadstart = function() {
     			window.alert("Starting to load video");
 				};
+
+				window.the_video = video;
 
 
 
@@ -193,6 +204,11 @@
 
 			}
 
+		</script>
+		<script>
+			function playVideo(){
+				window.the_video.play()
+			}
 		</script>
 	</body>
 </html>

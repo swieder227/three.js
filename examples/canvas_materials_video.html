@@ -11,9 +11,17 @@
 				margin: 0px;
 				overflow: hidden;
 			}
+			#btn-play {
+				position: absolute;
+				top: 0;
+				right: 0;
+				z-index: 1000;
+				font-size: 20px;
+			}
 		</style>
 	</head>
 	<body>
+		<button id="btn-play" onclick=playVideo()>PLAY</button>
 
 		<script src="../build/three.min.js"></script>
 
@@ -70,7 +78,7 @@
 
 				video = document.getElementById( 'video' );
 
-				//
+				window.the_video = video;
 
 				image = document.createElement( 'canvas' );
 				image.width = 480;
@@ -222,6 +230,11 @@
 			}
 
 
+		</script>
+		<script>
+			function playVideo(){
+				window.the_video.play()
+			}
 		</script>
 
 	</body>
